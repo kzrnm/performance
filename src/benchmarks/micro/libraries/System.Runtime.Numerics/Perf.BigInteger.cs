@@ -145,6 +145,11 @@ namespace System.Numerics.Tests
         public bool Equals(BigIntegers arguments)
             => arguments.Left == arguments.Right;
 
+        [Benchmark]
+        [ArgumentsSource(nameof(EqualsValues))]
+        public bool Compare(BigIntegers arguments)
+            => arguments.Left < arguments.Right;
+
         public class BigIntegerData
         {
             public string Text { get; }
